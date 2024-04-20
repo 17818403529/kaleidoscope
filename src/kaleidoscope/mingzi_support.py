@@ -1,6 +1,7 @@
 from re import findall
 import json
-from mingzi.mingzi import *
+
+# from mingzi import *
 
 ds_path = "C:/Users/17818/Music/mingzi/src/mingzi/data.json"
 
@@ -47,7 +48,7 @@ def update_ds(html, cat):
             data[cat].append(i)
             selected.append(i)
 
-    cmd = input("{} new names found.\n{}\nwhether to update(y/n)?\n".format(len(selected), selected))
+    cmd = input("{} new names found.\n{}\nUpdate (Y/n)? ".format(len(selected), selected))
     if cmd in ["y", "Y"]:
         with open(ds_path, "w", encoding="UTF-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
@@ -58,8 +59,8 @@ def update_ds(html, cat):
 
 if __name__ == "__main__":
     html = """
-
+秀娟
     """
     # conv_to_json()
-    show_ds()
-    # update_ds(html, "female_double")
+    # show_ds()
+    update_ds(html, "female_double")
